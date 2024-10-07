@@ -18,7 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/thepranaygupta/react-tailwind-css-starter-pack.git"
   },
-  "author": "Pranay Gupta",
+  "author": "Shahid Syed",
   "bugs": {
     "url": "https://github.com/thepranaygupta/react-tailwind-css-starter-pack/issues"
   },
@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^18.3.11",
     "tailwindcss": "^3.2.7"
   }
 }
