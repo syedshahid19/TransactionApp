@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: "https://transaction-app-taupe.vercel.app",
+    origin: "https://transaction-fe1tcui1e-shahids-projects-2e30da49.vercel.app",
     credentials: true,
   })
 );
