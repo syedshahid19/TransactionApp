@@ -31,6 +31,10 @@ exports.addTransaction = async (req, res) => {
         contact: savedTransaction.contact,
         service: savedTransaction.service,
         location: savedTransaction.location,
+      }, {
+        headers: {
+          'Content-Type': 'application/json', // Ensure the correct content type
+        }
       });
       res.status(200).send('Lead captured successfully');
       // res.json(savedTransaction);
