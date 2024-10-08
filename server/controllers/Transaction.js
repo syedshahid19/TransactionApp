@@ -1,5 +1,4 @@
 const Transaction = require('../models/Transaction');
-const axios = require('axios');
 
 // Get all transactions
 exports.getTransactions = async (req, res) => {
@@ -26,16 +25,6 @@ exports.addTransaction = async (req, res) => {
     try {
       const savedTransaction = await newTransaction.save();
       // Trigger LMS webhook to send lead data
-      await axios.post('https://rolebaseapp.onrender.com/api/v1/user/createLead', {
-        name: savedTransaction.name,
-        contact: savedTransaction.contact,
-        service: savedTransaction.service,
-        location: savedTransaction.location,
-      }, {
-        headers: {
-          'Content-Type': 'application/json', // Ensure the correct content type
-        }
-      });
       res.status(200).send('Lead captured successfully');
       // res.json(savedTransaction);
     } catch (err) {
