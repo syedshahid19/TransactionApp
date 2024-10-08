@@ -5,7 +5,7 @@ const transactionSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  description: {
+  service: {
     type: String,
     required: true
   },

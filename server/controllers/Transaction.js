@@ -1,4 +1,5 @@
 const Transaction = require('../models/Transaction');
+const axios = require('axios');
 
 // Get all transactions
 exports.getTransactions = async (req, res) => {
@@ -12,11 +13,11 @@ exports.getTransactions = async (req, res) => {
 
 // Add a new transaction
 exports.addTransaction = async (req, res) => {
-    const { amount, description, name, contact, location } = req.body;
+    const { amount, service, name, contact, location } = req.body;
   
     const newTransaction = new Transaction({
       amount,
-      description,
+      service,
       name,
       contact,
       location
@@ -24,7 +25,10 @@ exports.addTransaction = async (req, res) => {
   
     try {
       const savedTransaction = await newTransaction.save();
-      res.json(savedTransaction);
+      // Trigger LMS webhook to send lead data
+      await axios.post('http://localhost:4000/api/v1/createLead', leadData);
+      res.status(200).send('Lead captured successfully');
+      // res.json(savedTransaction);
     } catch (err) {
       res.status(400).json({ message: err.message });
     }
