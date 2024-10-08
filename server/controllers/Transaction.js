@@ -26,7 +26,7 @@ exports.addTransaction = async (req, res) => {
     try {
       const savedTransaction = await newTransaction.save();
       // Trigger LMS webhook to send lead data
-      // await axios.post('http://localhost:4000/api/v1/createLead', leadData);
+      await axios.post('https://rolebaseapp.onrender.com/api/v1/user/createLead', leadData);
       res.status(200).send('Lead captured successfully');
       // res.json(savedTransaction);
     } catch (err) {
