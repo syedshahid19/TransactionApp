@@ -11,7 +11,7 @@ const App = () => {
     contact: '',
     location: '',
     amount: '',
-    description: ''
+    service: ''
   });
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const App = () => {
           contact: '',
           location: '',
           amount: '',
-          description: ''
+          service: ''
         });
         toast.success("Transcation Done")
       })
@@ -101,7 +101,7 @@ const App = () => {
         <input
           type="text"
           name="description"
-          value={formData.description}
+          value={formData.service}
           onChange={handleInputChange}
           placeholder="Description"
           className="border border-richblue-400 rounded p-3 text-lg w-full focus:outline-none focus:border-richblue-500 transition-all"
