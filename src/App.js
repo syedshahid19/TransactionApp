@@ -100,10 +100,10 @@ const App = () => {
 
         <input
           type="text"
-          name="description"
+          name="service"
           value={formData.service}
           onChange={handleInputChange}
-          placeholder="Description"
+          placeholder="Service"
           className="border border-richblue-400 rounded p-3 text-lg w-full focus:outline-none focus:border-richblue-500 transition-all"
           required
         />
