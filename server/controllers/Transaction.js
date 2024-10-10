@@ -12,14 +12,14 @@ exports.getTransactions = async (req, res) => {
 
 // Add a new transaction
 exports.addTransaction = async (req, res) => {
-    const { amount, service, name, contact, location } = req.body;
+    const { name,amount, contact, location,service} = req.body;
   
     const newTransaction = new Transaction({
-      amount,
-      service,
       name,
+      amount,
       contact,
-      location
+      location,
+      service
     });
   
     try {

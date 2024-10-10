@@ -1,14 +1,6 @@
 const mongoose = require('mongoose');
 
 const transactionSchema = new mongoose.Schema({
-  amount: {
-    type: Number,
-    required: true
-  },
-  service: {
-    type: String,
-    required: true
-  },
   name: {
     type: String,
     required: true
@@ -17,8 +9,18 @@ const transactionSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  amount: {
+    type: Number,
+    required: true
+  },
   location: {
     type: String,
+    enum: ['India', 'USA', 'UK', 'China', 'Japan'],
+    required: true
+  },
+  service: {
+    type: String,
+    enum: ['Investment Advice', 'Wealth Management', 'Financial Planning'],
     required: true
   },
   date: {
