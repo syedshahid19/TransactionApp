@@ -13,6 +13,12 @@ exports.getTransactions = async (req, res) => {
 // Add a new transaction
 exports.addTransaction = async (req, res) => {
     const { name,amount, contact, location,service} = req.body;
+
+     // Check for duplicate leads
+     const existingLead = await Transaction.findOne({ contact });
+     if (existingLead) {
+       return res.status(400).json({ message: "Lead already exists." });
+     }
   
     const newTransaction = new Transaction({
       name,

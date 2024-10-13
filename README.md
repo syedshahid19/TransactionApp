@@ -39,3 +39,15 @@ Stage: New → Status: Active
 Stage: Pending → Status: Inactive
 Stage: Deal Won → Status: Active
 Stage: Deal Lost → Status: Closed
+
+
+
+"scripts": {
+    "start": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm run react-start\" \"npm run server-start\"",
+    "react-start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server-start": "cd server && npm run dev",
+    "dev": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm start\" \"npm run server\""
+  },

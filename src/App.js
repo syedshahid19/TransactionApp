@@ -33,7 +33,7 @@ const App = () => {
     } catch (error) {
       console.error("Error capturing lead in real-time:", error);
     }
-  }, 1000);  // Delay of 1 second to avoid excessive requests
+  }, 5000);  // Delay of 1 second to avoid excessive requests
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
